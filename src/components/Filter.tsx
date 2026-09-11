@@ -9,8 +9,8 @@ interface filterProps {
 }
 function Filter({ activeTasks, setFilter, filter, setTasks, tasks }: filterProps) {
   return (
-    <footer className={`${tasks.length > 0 ? "flex flex-col  justify-between text-sm text-gray-400 shadow-md gap-2 dark:bg-[#25273c] dark:text-white/30" : "hidden"}`}>
-      <div className="flex justify-between border border-gray-500/40 rounded-md ">
+    <footer className="flex flex-col  justify-between text-sm text-gray-400 shadow-md gap-2 dark:bg-[#25273c] dark:text-white/30" >
+      <div className={`${tasks.length > 0 ? "flex justify-between border border-gray-500/40 rounded-md " : "hidden"}`}>
         <h4 className="p-3 "><b>{activeTasks.length}</b> item(s) left</h4>
         <div className="gap-4  justify-center hidden md:flex ">
           <button
@@ -40,7 +40,7 @@ function Filter({ activeTasks, setFilter, filter, setTasks, tasks }: filterProps
         </button>
       </div>
 
-      <ul className="flex gap-4  justify-center md:hidden">
+      <ul className={`${tasks.length > 0 ? "" : "fixed bottom-0 left-0 right-0"} flex gap-4  justify-center md:hidden`}>
         <li
           className={`p-3 hover:text-blue-700 cursor-pointer ${filter === "All" ? "text-blue-500" : ""}`} 
           onClick={() => setFilter("All")}

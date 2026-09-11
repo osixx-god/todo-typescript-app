@@ -64,7 +64,7 @@ function App() {
   return (
     <>
       <div
-        className={`flex flex-col justify-center gap-4 min-h-screen ${theme==="dark"? "dark bg-[#161722]" : "bg-gray-100"  }`}
+        className={`flex flex-col min-h-screen ${theme==="dark"? "dark bg-[#161722]" : "bg-gray-100"  }`}
       >
         <Header themeToggle={themeToggle}
                 theme={theme}/>
