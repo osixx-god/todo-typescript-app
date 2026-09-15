@@ -1,75 +1,68 @@
-# React + TypeScript + Vite
+# Todo App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A todo list app built with React, TypeScript, and Tailwind CSS — supporting adding, completing, deleting, and filtering tasks, with persistent storage and a light/dark theme toggle.
 
-Currently, two official plugins are available:
+**Live demo:** [todo-typescript-app-five.vercel.app](https://todo-typescript-app-five.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Demo
 
-## React Compiler
+https://github.com/user-attachments/assets/98d1cf84-a164-48c5-9206-9c95d3344cbc
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- **Add tasks** — type a task and press Enter to add it to the list
+- **Toggle complete** — click a task's circle to mark it done or undone
+- **Delete tasks** — remove a task with the delete icon
+- **Filter tasks** — view All, Active, or Completed tasks
+- **Clear completed** — remove all completed tasks in one click
+- **Persistent storage** — tasks are saved to `localStorage`, so they survive a page refresh
+- **Light/dark theme** — toggle between light and dark mode with the moon/sun icon
+- **Live task count** — see how many active tasks remain at a glance
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vite.dev/) — build tool and dev server
+- [Tailwind CSS](https://tailwindcss.com/) — styling
+- [Vercel](https://vercel.com/) — deployment
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Getting Started
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Clone the repo and install dependencies:
 
+```bash
+git clone https://github.com/osixx-god/todo-typescript-app.git
+cd todo-typescript-app
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Run the dev server:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm run dev
 ```
+
+The app will be available at `http://localhost:5173`.
+
+Build for production:
+
+```bash
+npm run build
+```
+
+## What I Learned
+
+This project was built as a hands-on introduction to TypeScript with React, starting from no prior TypeScript experience. Key concepts covered along the way:
+
+- Typing component props with interfaces, and typing `useState` with generics (e.g. `useState<Todo[]>([])`)
+- Typing event handlers (`React.KeyboardEvent`, `React.MouseEvent`) and `useState` setter functions (`Dispatch<SetStateAction<T>>`)
+- Lifting state up and passing data/functions between components via props
+- Working with arrays immutably using `.map()` and `.filter()` instead of mutating state directly
+- Deriving values (like filtered task lists) from existing state during render, rather than storing them in separate state
+- Persisting state to `localStorage` with `useEffect`
+- Styling with Tailwind CSS, including custom theming via `@theme` and dark mode
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
